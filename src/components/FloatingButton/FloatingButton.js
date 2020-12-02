@@ -17,7 +17,8 @@ export default function FloatingButton({actions}) {
             </button>
 
             { actions.map((el, index)=>
-                <button className={Style.FloatingButtonSecondary}
+                <button key={index}
+                    className={Style.FloatingButtonSecondary}
                     style={isExpanded ? createExpandedStyle(index) : null}
                     onClick={el.action}
                 >
