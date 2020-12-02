@@ -1,8 +1,8 @@
-import React, {createRef, useEffect} from 'react'
+import React, {createRef, useState} from 'react'
 import Style from './Main.module.scss'
 
 import {PageTemplate} from '../'
-import {Container, Task, FloatingButton} from '../../components'
+import {Container, Task, FloatingButton, LoadingOverlay} from '../../components'
 
 import {ReactComponent as Add} from './plus.svg'
 import {ReactComponent as Camera} from './addCamera.svg'
@@ -12,6 +12,8 @@ import {googleVisionQuery} from '../../utils'
 const CACHED_TEXT = ["Task 1↵Task 2↵Task 3↵Task 4↵", "Task", "1", "Task", "2", "Task", "3", "Task", "4"]
 
 export default function Main() {
+    
+    const [isLoading, setLoading] = useState(false)
 
     const uploadRef = createRef(0)
     const promptCapture = ()=>
@@ -23,7 +25,9 @@ export default function Main() {
         const reader = new FileReader()
 
         reader.onload = async function(e){
+            await setLoading(true)
             const result = await googleVisionQuery(e.target.result)
+            await setLoading(false)
             parseResponse(result)
         }
 
@@ -39,7 +43,10 @@ export default function Main() {
     }
 
     const mockAction = async () => {
+        await setLoading(true)
         const result = await new Promise((resolve)=> setTimeout(()=>resolve(), 5000))
+        await setLoading(false)
+
         parseResponse({responses:[{textAnnotations:
             CACHED_TEXT.map(e=>({description:e}))
         }]})
@@ -80,6 +87,8 @@ export default function Main() {
             />
 
             <input type="file" hidden ref={uploadRef} onChange={handlePhotoChange} accept="image/png, image/jpeg" />
+            
+            <LoadingOverlay state={isLoading}/>
         </PageTemplate>
     )
 }
