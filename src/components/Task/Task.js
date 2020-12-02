@@ -25,6 +25,10 @@ export default function Task(props) {
                 <h3>{name}</h3>
                 <p>{secondsToString(timePerSubtask)}</p>
             </div>
+            
+            <p className={Style.Subtasks}>
+                {numberOfSubtasks && (numberOfSubtasks + `task${numberOfSubtasks>1?'s':''}`)} 
+            </p>
 
             <Hamburger />
         </section>

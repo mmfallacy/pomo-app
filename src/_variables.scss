@@ -7,9 +7,27 @@ $gray-600: #F2F2F2;
 $white: white;
 $black:  black;
 
+%h2{
+    font-size: 2.25rem;
+    font-family: "Roboto";
+}
 %h3{
     font-size: 1.75rem;
+    font-family: "Roboto";
+
+}
+%h4{
+    font-size: 1.5rem;
+    font-family: "Roboto";
 }
 %body{
     font-size: 1.25rem;
+    font-family: "Roboto";
+
+}
+
+
+%emptybutton{
+    background:none;
+    border:none;
 }

@@ -1,12 +1,19 @@
 import React from 'react'
 import './global.scss'
+import {PageTemplate} from './pages'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-
+import {Main} from './pages'
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <Route 
+        exact
+        path="/"
+        component={Main}
+      />
+    </Router>
   );
 }
 

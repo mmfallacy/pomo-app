@@ -4,7 +4,7 @@ import {Header} from '../../components'
 
 export default function PageTemplate({children, withHeader, className=''}) {
     return (
-        <div className={`${Style.PageTemplate} ${className}`} style={withHeader && {paddingTop: '80px'}}>
+        <div className={`${Style.PageTemplate} ${className}`} style={withHeader && {paddingTop: '96px'}}>
             {withHeader && <Header />}
             {children}
         </div>

@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .Task{
-    width:80vw;
+    width:84vw;
     height:56px;
     background:$white; 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 0px 8px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
     padding: 8px;
     
     display:grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
     column-gap: 8px;
     align-items: center;
     justify-items:center;
@@ -59,6 +59,11 @@
         @extend %body;
         color: $gray-200;
     }
+}
+
+.Subtasks{
+    @extend %body;
+    color: $gray-200;
 }
 
 .Complete{

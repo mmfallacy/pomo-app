@@ -1,10 +1,9 @@
-import Background from './Background/Background'
 import Header from './Header/Header'
 import Task from './Task/Task'
-
+import Container from './Container/Container'
 
 export {
-    Background,
     Header,
     Task,
+    Container
 }

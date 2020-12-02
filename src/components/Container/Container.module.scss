@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.ContainerWrapper{
+    padding: 0 12px;
+    header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        h4{
+            @extend %h4;
+            font-weight: 500;
+        }
+        button{
+            @extend %emptybutton;
+            @extend %h4;
+            color: $gray-200;
+        }
+        margin-bottom: 8px;
+    }
+}
+
+.Container{
+    display:flex;
+    flex-direction:column;
+    max-height:100vw;
+
+    & > *{
+        margin:4px;
+        margin-bottom: 8px;
+    }
+
+    transition: max-height .4s ease-in;
+
+    overflow:scroll;
+
+    &.Hidden{
+        max-height: 0 !important;
+        overflow: hidden;
+    }
+}
