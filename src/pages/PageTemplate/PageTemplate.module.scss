@@ -1,8 +1,11 @@
 @import '../../variables';
 
 .PageTemplate{
-    height:100%;
+    min-height:100%;
     width:100%;
-    padding-top: 80px !important; 
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:0;
+    background-image:url(./background.svg);
 }

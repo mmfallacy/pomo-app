@@ -1,13 +1,12 @@
 import React from 'react'
 import Style from './PageTemplate.module.scss'
-import {Background, Header} from '../../components'
+import {Header} from '../../components'
 
-export default function PageTemplate({children, className=''}) {
+export default function PageTemplate({children, withHeader, className=''}) {
     return (
-        <div className={`${Style.PageTemplate} ${className}`}>
-            <Header />
+        <div className={`${Style.PageTemplate} ${className}`} style={withHeader && {paddingTop: '80px'}}>
+            {withHeader && <Header />}
             {children}
-            <Background />
         </div>
     )
 }
