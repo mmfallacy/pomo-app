@@ -2,7 +2,11 @@ import React from 'react'
 import Style from './Main.module.scss'
 
 import {PageTemplate} from '../'
-import {Container, Task} from '../../components'
+import {Container, Task, FloatingButton} from '../../components'
+
+import {ReactComponent as Add} from './plus.svg'
+import {ReactComponent as Camera} from './addCamera.svg'
+
 
 export default function Main() {
     return (
@@ -33,6 +37,12 @@ export default function Main() {
                 <Task taskid={1} name="Pomo Session" timePerSubtask={2323} numberOfSubtasks={20}/>
             </Container>
 
+            <FloatingButton
+                actions={[
+                    {icon: <Add/>, action:()=>console.log('test')},
+                    {icon: <Camera/>, action:()=>console.log('test2')},
+                ]}
+            />
         </PageTemplate>
     )
 }
