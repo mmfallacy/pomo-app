@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.Container{
+
+}
+
+.InputContainer{
+    display:flex;
+    align-items:center;
+}
+
+.Input{
+    @extend %big;
+    font-weight: 900;
+    width: 42px;
+    padding: 4px 4px 4px 0px;
+    background: none;
+    border:none;
+}
+
+.Divider{
+    @extend %big;
+    font-weight: 900;
+    margin-right:4px;
+}
+
+.Label{
+    @extend %h3;
+    font-weight: 500;
+}

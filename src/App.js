@@ -3,7 +3,7 @@ import './global.scss'
 import {PageTemplate} from './pages'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import {Main} from './pages'
+import {Main, TaskForm} from './pages'
 
 function App() {
   return (
@@ -12,6 +12,11 @@ function App() {
         exact
         path="/"
         component={Main}
+      />
+      <Route
+        exact
+        path="/newtask"
+        component={TaskForm}
       />
     </Router>
   );
