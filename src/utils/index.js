@@ -1,4 +1,5 @@
 import defaultObject from './defaultObject'
+import googleVisionQuery from './googleVisionQuery'
 
 
 const secondsToString = (secs) => {
@@ -15,5 +16,6 @@ const secondsToString = (secs) => {
 
 export {
     defaultObject,
-    secondsToString
+    secondsToString,
+    googleVisionQuery
 }

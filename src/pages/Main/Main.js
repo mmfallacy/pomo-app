@@ -1,4 +1,4 @@
-import React, {createRef} from 'react'
+import React, {createRef, useEffect} from 'react'
 import Style from './Main.module.scss'
 
 import {PageTemplate} from '../'
@@ -7,6 +7,9 @@ import {Container, Task, FloatingButton} from '../../components'
 import {ReactComponent as Add} from './plus.svg'
 import {ReactComponent as Camera} from './addCamera.svg'
 
+import {googleVisionQuery} from '../../utils'
+
+const CACHED_TEXT = ["Task 1↵Task 2↵Task 3↵Task 4↵", "Task", "1", "Task", "2", "Task", "3", "Task", "4"]
 
 export default function Main() {
 
@@ -16,9 +19,31 @@ export default function Main() {
     
     const handlePhotoChange = (e)=>{
         const file = e.target.files[0]
-        console.table(file)
+        if (!file) return
+        const reader = new FileReader()
+
+        reader.onload = async function(e){
+            const result = await googleVisionQuery(e.target.result)
+            parseResponse(result)
+        }
+
+        reader.readAsDataURL(file)
     }
 
+    const parseResponse = ({responses})=>{
+        const result = responses[0]
+
+        const text = result.textAnnotations.map(e=>e.description)
+        console.log(text)
+
+    }
+
+    const mockAction = async () => {
+        const result = await new Promise((resolve)=> setTimeout(()=>resolve(), 5000))
+        parseResponse({responses:[{textAnnotations:
+            CACHED_TEXT.map(e=>({description:e}))
+        }]})
+    }
     return (
         <PageTemplate withHeader className={Style.Main}>
             <nav className={Style.NavBar}>
@@ -50,7 +75,7 @@ export default function Main() {
             <FloatingButton
                 actions={[
                     {icon: <Add/>, action:()=>console.log('test')},
-                    {icon: <Camera/>, action:promptCapture},
+                    {icon: <Camera/>, action:mockAction},
                 ]}
             />
 
