@@ -11,7 +11,7 @@ const ColorSelector = React.forwardRef((props, ref) =>{
 
                 <div key={color} className={Style.RadioContainer}>
 
-                    <input type="radio" className={Style.ColorRadio} name={name} onChange={(e)=>console.log(e.target.value)} value={color} id={`ColorRadioButton-${color}`}/>
+                    <input type="radio" ref={ref} className={Style.ColorRadio} name={name} onChange={(e)=>console.log(e.target.value)} value={color} id={`ColorRadioButton-${color}`}/>
 
                     <label htmlFor={`ColorRadioButton-${color}`} className={Style.ColorFacade}
                         style={{backgroundColor:color}}

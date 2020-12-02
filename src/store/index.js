@@ -1,5 +1,7 @@
-import FormStore from './FormStore/FormStore'
+import useFormStore from './FormStore'
+import useTaskStore from './TaskStore'
 
 export {
-    FormStore
+    useFormStore,
+    useTaskStore
 }

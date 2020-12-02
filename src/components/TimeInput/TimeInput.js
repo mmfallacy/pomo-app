@@ -13,9 +13,9 @@ const TimeInput = React.forwardRef((props, ref) => {
                 <input className={Style.Input}
                     type="number"
                     min='0' max='60'
-                    name={`${name}-minutes`}
+                    name={`${name}Minutes`}
                     ref={ref}
-                    defaultValue={0}
+                    placeholder="00"
                 />
             
                 <span className={Style.Divider}>:</span>
@@ -23,9 +23,9 @@ const TimeInput = React.forwardRef((props, ref) => {
                 <input className={Style.Input}
                     type="number"
                     min='0' max='60'
-                    name={`${name}-seconds`}
+                    name={`${name}Seconds`}
                     ref={ref}
-                    defaultValue={0}
+                    placeholder="00"
                 />
 
             </div>

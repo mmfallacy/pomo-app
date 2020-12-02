@@ -1,25 +1,29 @@
 import create from 'zustand'
+import {devtools} from 'zustand/middleware'
 
-const useFormStore = create(set =>({
-    // Default state
-    taskid: 0,
-    name: '',
-    timePerSubtask: 0,
+const defaultState = {
+    taskid: null,
+    name: 'Task Name',
+    timePerSubtask: 60,
     isComplete: false,
-    numberOfSubtasks: 0,
-    timePerBreak: 0,
+    numberOfSubtasks: 4,
+    timePerBreak: 60,
     color:"#FF4E4E",
+}
 
-    updateState: (formData) => set(state=>(
+const useFormStore = create(devtools(set =>({
+    // Default state
+    ...defaultState,
+
+    updateState: async (formData) => await set(state=>(
         {
             ...state,
-            ...formData,
-            timePerSubtask: (formData.timePerSubtaskMinutes * 60 ) + formData.timePerSubtaskSeconds,
-            timePerBreak: (formData.timePerBreakMinutes * 60 ) + formData.timePerBreakSeconds
+            ...formData
         }
-    ))
+    )),
+    reset: () => set(state=>({...state,...defaultState}))
 
-}))
+})),"Form Store")
 
 
 export default useFormStore

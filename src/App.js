@@ -1,6 +1,5 @@
 import React from 'react'
 import './global.scss'
-import {PageTemplate} from './pages'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import {Main, TaskForm} from './pages'
@@ -15,7 +14,7 @@ function App() {
       />
       <Route
         exact
-        path="/newtask"
+        path="/newtask/:uuid"
         component={TaskForm}
       />
     </Router>
