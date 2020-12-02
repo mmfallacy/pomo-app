@@ -27,7 +27,7 @@ export default function Task(props) {
             </div>
             
             <p className={Style.Subtasks}>
-                {numberOfSubtasks && (numberOfSubtasks + `task${numberOfSubtasks>1?'s':''}`)} 
+                {numberOfSubtasks && (numberOfSubtasks + ` task${numberOfSubtasks>1?'s':''}`)} 
             </p>
 
             <Hamburger />
