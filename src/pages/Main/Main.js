@@ -93,7 +93,7 @@ export default function Main() {
 
             <Container label="Completed Tasks" hideable maxHeightInItems={2}>
                 {tasks.filter(el=>el.isComplete).map((data)=>
-                    <Task {...data} />
+                    <Task key={data.taskid} {...data} />
                 )}
             </Container>
 

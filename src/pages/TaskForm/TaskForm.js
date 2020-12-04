@@ -28,7 +28,7 @@ export default function TaskForm(props) {
             name, color, 
             timePerBreakMinutes, timePerBreakSeconds, 
             timePerSubtaskMinutes, timePerSubtaskSeconds,
-            numberOfSessions
+            numberOfSubtasks
         } = data;
         if (timePerBreakMinutes === '') timePerBreakMinutes = 0
         if (timePerBreakSeconds === '') timePerBreakSeconds = 0
@@ -39,7 +39,7 @@ export default function TaskForm(props) {
             name, color,
             timePerBreak: parseInt(timePerBreakMinutes)*60 + parseInt(timePerBreakSeconds),
             timePerSubtask: parseInt(timePerSubtaskMinutes)*60 + parseInt(timePerSubtaskSeconds),
-            numberOfSessions:parseInt(numberOfSessions),
+            numberOfSubtasks:parseInt(numberOfSubtasks),
             taskid:taskid,
         })
         alert("Created Task!")
@@ -79,7 +79,7 @@ export default function TaskForm(props) {
                     <TimeInput label="Break" name="timePerBreak" ref={register}
                     />
                     <div className={Style.Session}>
-                        <input type="number" name="numberOfSessions" 
+                        <input type="number" name="numberOfSubtasks" 
                             className={Style.Sessions}
                             placeholder="00"
                             ref={register}

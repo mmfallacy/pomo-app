@@ -2,7 +2,7 @@ import React from 'react'
 import './global.scss'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import {Main, TaskForm} from './pages'
+import {Main, TaskForm, TaskRun} from './pages'
 
 function App() {
   return (
@@ -16,6 +16,11 @@ function App() {
         exact
         path="/newtask/:uuid"
         component={TaskForm}
+      />
+      <Route
+        exact
+        path="/run/:taskid"
+        component={TaskRun}
       />
     </Router>
   );
