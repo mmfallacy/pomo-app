@@ -70,12 +70,15 @@ export default function TaskRun(props) {
         return s - 1
     })
 
+    const doneSound = new Audio('/done.mp3')
+
     // On timer done
     useEffect(()=>{
         if(seconds > 0) return
         setStart(false)
         clearInterval(intervalRef.current)
         timeQueuePop()
+        doneSound.play()
     },[seconds])
 
     const timeQueuePop = () => setTimeQueue(s=>s.slice(1))
