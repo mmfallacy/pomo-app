@@ -137,6 +137,20 @@
     }
 }
 
+.Back{
+    position:absolute;
+    top: 8px;
+    left:8px;
+    display:block;
+    background:none;
+    border:none;
+    svg{
+        path{
+            fill:$darkBlue;
+        }
+    }
+}
+
 .TaskRun.Start {
     background-image: url(./background-dark.svg);
 

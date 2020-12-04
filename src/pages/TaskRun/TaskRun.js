@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import Style from './TaskRun.module.scss'
 import {PageTemplate} from '../'
+import {ReactComponent as Chevron} from './back.svg'
 
 import {useTaskStore} from '../../store'
 
@@ -115,6 +116,11 @@ export default function TaskRun(props) {
                 { Array.isArray(timeQueue) &&
                     <QueueItem name={timeQueue[0]?.content.name} subtaskNumber={timeQueue[0]?.content?.subtaskNumber} onSkip={onSkip}/>}
             </div>
+
+            <button className={Style.Back}
+            onClick={()=>history.push('/')}
+            ><Chevron /></button>
+
         </PageTemplate>
 
         :
