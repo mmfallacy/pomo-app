@@ -33,13 +33,12 @@
         width:20px;
         border-radius:20px;
         &.Checked{
-            box-shadow: 0 0 0 3px rgba($white,.4),
-            ;
+            box-shadow: 0 0 0 3px $yellow        
         }
     }
 
     
     input:checked + .ColorFacade{
-        box-shadow: 0 0 0 3px rgba($white,.4);
+        box-shadow: 0 0 0 3px $yellow;
     }
 }

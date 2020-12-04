@@ -12,9 +12,19 @@ const defaultState = {
 }
 
 const useTaskStore = create(devtools(set=>({
-    tasks: [],
-    createTask: (data) => set(state=>({...state, tasks:[...state.tasks, {...defaultState,...data}]})),
-    removeTask: (uuid) => set(state=>({...state, tasks:state.tasks.filter(el=>el.uuid!==uuid)}))
+    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+    createTask: (data) => 
+        set(state=>{
+            const newState = ({...state, tasks:[...state.tasks, {...defaultState,...data}]})
+            localStorage.setItem('tasks', JSON.stringify(newState.tasks))
+            return newState
+    }),
+    removeTask: (uuid) => 
+        set(state=>{
+            const newState = ({...state, tasks:state.tasks.filter(el=>el.uuid!==uuid)})
+            localStorage.setItem('tasks', JSON.stringify(newState.tasks))
+            return newState
+    })
 })),"Tasks Store")
 
 export default useTaskStore

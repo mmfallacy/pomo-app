@@ -93,7 +93,13 @@ export default function TaskForm(props) {
 
                     <button type="submit" className={Style.Submit}>Confirm</button>
 
-                    <button onClick={onReset} className={Style.Discard}>Discard</button>
+                    <button type="button" 
+                    onClick={(e)=>{
+                        e.preventDefault()
+                        onReset()
+                    }} 
+                    className={Style.Discard}
+                    >Discard</button>
 
                 </div>
             </form>

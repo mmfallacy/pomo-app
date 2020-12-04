@@ -25,6 +25,7 @@ export default function Main() {
 
     const tasks = useTaskStore(state=>state.tasks)
 
+    console.log(tasks)
     const createTask = useTaskStore(state=>state.createTask)
 
     const uploadRef = createRef(0)
