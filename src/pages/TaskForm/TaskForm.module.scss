@@ -1,0 +1,101 @@
+@import '../../variables';
+
+.FormContainer{
+    display:flex;
+
+    flex-direction: column;
+
+    padding:8px;
+    flex-grow: 1;
+
+    &>*:not(:last-child){
+        margin-bottom: 24px;;
+    }
+
+    header{
+        @extend %h4;
+        color:$black;
+        margin-bottom: 8px!important;   
+        font-weight: 900;
+    }
+}
+
+.FormSection{
+    padding:24px;
+    background: #87C5FF;
+    border-radius: 15px ;
+
+    display:flex;
+    flex-direction: column;
+
+    & > *:not(:last-child){
+        margin-bottom: 16px;
+    }
+}
+
+.TaskName{
+    @extend %h1;
+    padding:4px;
+    background:none;
+    border:none;
+    font-weight: 600;
+    color: black;
+
+    &::placeholder{
+        color: rgba(black,.5);
+    }
+    &::selection{
+        background-color: white;
+    }
+}
+
+
+.TaskName{
+    &:focus{
+        background: rgba($white,.1)
+    }
+}
+
+.Session{
+    display:flex;
+    flex-direction: column;
+}
+
+.Sessions{
+    @extend %big;
+    font-weight: 900;
+    width: 40px;
+    padding: 4px 4px 4px 0px;
+    background: none;
+    border:none;
+    &::placeholder{
+        color: $black;
+    }
+}
+
+.Label{
+    @extend %h3;
+    font-weight: 500;
+}
+
+.ButtonContainer{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+
+    button{
+        @extend %h2;
+        color:white;
+        font-weight: 500;
+        padding:10px 48px;
+        border-radius:30px;
+        background: $darkBlue;
+        border:none;
+        &.Discard{
+            color: $darkBlue;
+            border:2px solid $darkBlue;
+            background: none;
+        }
+    }
+}
+

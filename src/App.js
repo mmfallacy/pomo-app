@@ -1,12 +1,23 @@
 import React from 'react'
 import './global.scss'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-
+import {Main, TaskForm} from './pages'
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <Route 
+        exact
+        path="/"
+        component={Main}
+      />
+      <Route
+        exact
+        path="/newtask/:uuid"
+        component={TaskForm}
+      />
+    </Router>
   );
 }
 

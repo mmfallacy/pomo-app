@@ -1,0 +1,22 @@
+@import '../../variables';
+.Main{
+    overflow: hidden;
+    height: 100vh;
+}
+
+.NavBar{
+    height: 56px;
+    width:100%;
+    background-color: $blue;
+    border-radius: 15px;
+
+    padding:24px;
+    display:flex;
+    align-items: center;
+}
+.Option{
+    @extend %emptybutton;
+    @extend %h2;
+    font-weight: 500;
+    color:white;
+}
