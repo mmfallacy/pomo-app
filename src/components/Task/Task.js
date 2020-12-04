@@ -11,7 +11,8 @@ export default function Task(props) {
         taskid, name, 
         timePerSubtask, isComplete, 
         numberOfSubtasks, timePerBreak, 
-        color="#FF4E4E"
+        color="#FF4E4E",
+        onHamburger
     } = props
 
     const history = useHistory()
@@ -19,6 +20,7 @@ export default function Task(props) {
     const onPlay = () =>{
         history.push(`/run/${taskid}`)
     }
+
     return (
         <section className={`${Style.Task} ${isComplete?Style.Complete:''}`}>
             <div className={Style.TaskButton} style={{backgroundColor: color}} onClick={onPlay}>
@@ -37,7 +39,10 @@ export default function Task(props) {
                 {numberOfSubtasks && (numberOfSubtasks + ` task${numberOfSubtasks>1?'s':''}`)} 
             </p>
 
-            <Hamburger />
+            <button className={Style.Hamburger} onClick={onHamburger}>
+                <Hamburger />
+            </button>
+
         </section>
     )
 }

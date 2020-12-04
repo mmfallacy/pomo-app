@@ -47,6 +47,20 @@ const useTaskStore = create(devtools(set=>({
             localStorage.setItem('tasks', JSON.stringify(newState.tasks))
             return newState
     }),
+    toggleCompleted: (id, value) =>
+        set(state=>{
+            const newState = ({
+                ...state, 
+                tasks:[
+                    ...state.tasks.map(element=>{
+                        if(element.taskid === id) element.isComplete = !element.isComplete
+                        return element
+                    }),
+                ]
+            })
+            localStorage.setItem('tasks', JSON.stringify(newState.tasks))
+            return newState
+    }),
 })),"Tasks Store")
 
 export default useTaskStore

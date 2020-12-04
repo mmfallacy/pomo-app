@@ -2,7 +2,7 @@ import React, {createRef, useState} from 'react'
 import Style from './Main.module.scss'
 
 import {PageTemplate} from '../'
-import {Container, Task, FloatingButton} from '../../components'
+import {Container, Task, FloatingButton, ContextMenu} from '../../components'
 
 import {ReactComponent as Add} from './plus.svg'
 import {ReactComponent as Camera} from './addCamera.svg'
@@ -25,7 +25,6 @@ export default function Main() {
 
     const tasks = useTaskStore(state=>state.tasks)
 
-    console.log(tasks)
     const createTask = useTaskStore(state=>state.createTask)
 
     const uploadRef = createRef(0)
@@ -50,8 +49,6 @@ export default function Main() {
         const result = responses[0]
 
         const text = result.fullTextAnnotation.text
-        
-        console.log(text, text.split(/\r\n|\r|\n/))
 
         let parsed = text.split(/\r\n|\r|\n/)
 
@@ -77,6 +74,11 @@ export default function Main() {
         history.push(`/newtask/${newId}`)
     }
 
+    const removeTask = useTaskStore(state=>state.removeTask)
+    const toggleCompleted = useTaskStore(state=>state.toggleCompleted)
+
+    const [contextMenu, setContextMenu] = useState(false)
+
     return (
         <PageTemplate withHeader className={Style.Main} state={isLoading}>
             <nav className={Style.NavBar}>
@@ -87,13 +89,13 @@ export default function Main() {
 
             <Container label="Uncompleted Tasks" maxHeightInItems={5}>
                 {tasks.filter(el=>!el.isComplete).map((data)=>
-                    <Task key={data.taskid} {...data} />
+                    <Task key={data.taskid} {...data} onHamburger={()=>setContextMenu(data.taskid)}/>
                 )}
             </Container>
 
             <Container label="Completed Tasks" hideable maxHeightInItems={2}>
                 {tasks.filter(el=>el.isComplete).map((data)=>
-                    <Task key={data.taskid} {...data} />
+                    <Task key={data.taskid} {...data} onHamburger={()=>setContextMenu(data.taskid)}/>
                 )}
             </Container>
 
@@ -106,6 +108,13 @@ export default function Main() {
 
             <input type="file" hidden ref={uploadRef} onChange={handlePhotoChange} accept="image/png, image/jpeg" capture/>
             
+
+            <ContextMenu state={contextMenu} setState={setContextMenu}
+                options={[
+                    {label:"Delete Task", action:()=>removeTask(contextMenu)},
+                    {label:"Toggle Complete Status", action:()=>toggleCompleted(contextMenu)}
+                ]}
+            />
         </PageTemplate>
     )
 }
