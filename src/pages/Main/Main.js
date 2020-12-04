@@ -57,7 +57,7 @@ export default function Main() {
 
         parsed.pop()
         
-        parsed.slice(0,-1).map((name)=> createTask({name, taskid: uuidv4()}))
+        parsed.map((name)=> createTask({name, taskid: uuidv4()}))
         
          setLoading(false)
     }
