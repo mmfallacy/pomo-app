@@ -3,6 +3,8 @@ import Style from './Task.module.scss'
 import {ReactComponent as Hamburger} from './hamburger.svg'
 import {secondsToString} from '../../utils'
 
+import {useHistory} from 'react-router-dom'
+
 export default function Task(props) {
 
     const {
@@ -12,9 +14,14 @@ export default function Task(props) {
         color="#FF4E4E"
     } = props
 
+    const history = useHistory()
+
+    const onPlay = () =>{
+        history.push(`/run/${taskid}`)
+    }
     return (
-        <section className={`${Style.Task} ${isComplete?Style.Complete:''}`} onClick={()=>{console.log(taskid)}}>
-            <div className={Style.TaskButton} style={{backgroundColor: color}}>
+        <section className={`${Style.Task} ${isComplete?Style.Complete:''}`}>
+            <div className={Style.TaskButton} style={{backgroundColor: color}} onClick={onPlay}>
                 { isComplete?
                     <Check /> :
                     <Play />

@@ -1,0 +1,185 @@
+@import "../../variables";
+
+.Timer{
+    height:250px;
+    width:250px;
+    position:relative;
+
+    display:flex;
+    align-items:center; 
+    justify-content: center;
+}
+
+.CircularContainer{
+    fill: none;
+    position: absolute;
+    top: 0;
+    left:0;
+
+    .Fill{
+        stroke: blue; // Default
+        stroke-width:2px;
+        stroke-dasharray: 100,100;
+        transition: stroke-dasharray .1s linear;
+    }
+    .Background{
+        fill: none; // Default
+    }
+}
+
+.Text{
+    position: relative;
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.Timer{
+    margin-top: 120px;
+}
+
+.TimerControl{
+    padding: 8px 48px;
+    border-radius: 40px;
+    border:2px solid $darkBlue;
+    background:none;
+    @extend %h3;
+    font-weight: bold;
+    color: $darkBlue;
+
+    margin: 40px 0;
+}
+
+.QueueItem{
+    width:84vw;
+    height:56px;
+    background:$white; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+
+    padding: 8px;
+    
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    column-gap: 8px;
+    align-items: center;
+    justify-items:center;
+    
+}
+
+.TaskButton{
+    height:24px;
+    width:24px;
+    border-radius:24px;
+    background-color: $gray-500;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    .Play{
+        height:45%;
+        margin-left:10%;
+        path{
+            fill:$white;
+        }
+    }
+    .Check{
+        height:80%;
+        path{
+            fill:$gray-200;
+        }
+    }
+}
+
+.TaskDetails{
+    width:100%;
+
+    h3{
+        @extend %h3;
+        color: $black;
+        display:inline-block;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 55vw;
+    }
+
+    p{
+        @extend %body;
+        color: $gray-200;
+    }
+}
+
+.Subtasks{
+    @extend %h3;
+    color: $gray-200;
+}
+
+.Skip {
+    padding: 6px 16px;
+    border-radius:40px;
+    border:none;
+    background-color: $gray-200;
+    color:white;
+    @extend %h4;
+}
+
+.TaskRun{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Timer .Fill{
+        stroke:$blue;
+    }
+    .Timer .Background{
+        fill:white;
+    }
+}
+
+.TaskRun.Start {
+    background-image: url(./background-dark.svg);
+
+    .Timer .Fill{
+        stroke: $white;
+    }
+    .Timer .Background{
+        fill: $darkBlue;
+    }
+    .Timer .Text{
+        color: white;
+    }
+}
+
+.TaskRun.Done{
+    background: $darkBlue !important;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+
+    .Completed{
+        @extend %big;
+        font-weight: bold;
+        margin-bottom: 38px;
+        color:white;
+    }
+
+    .ButtonGroup{
+        display:flex;
+        *:not(:last-child){
+            margin-right: 24px;
+        }
+    }
+
+    .Action{
+        padding: 8px 0;
+        border-radius: 40px;
+        border:2px solid $white;
+        background:none;
+        @extend %h3;
+        font-weight: bold;
+        color: $white;
+        width: 120px;
+    }
+}

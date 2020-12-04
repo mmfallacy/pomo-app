@@ -45,7 +45,7 @@
         color: rgba(black,.5);
     }
     &::selection{
-        background-color: white;
+        background-color: $yellow;
     }
 }
 

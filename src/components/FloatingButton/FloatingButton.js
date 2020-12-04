@@ -32,6 +32,6 @@ export default function FloatingButton({actions}) {
 
 const createExpandedStyle = (index) => (
     {
-        transform: `translateY(-${8 + (56 * (index+1))}px)`
+        transform: `translateY(-${8 + (56 * (index+1))}px)`,
     }
 )

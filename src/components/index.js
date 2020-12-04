@@ -1,6 +1,7 @@
 import Header from './Header/Header'
 import Task from './Task/Task'
 import Container from './Container/Container'
+import Timer from './Timer/Timer'
 
 import FloatingButton from './FloatingButton/FloatingButton'
 import LoadingOverlay from './LoadingOverlay/LoadingOverlay'
@@ -15,5 +16,6 @@ export {
     FloatingButton,
     LoadingOverlay,
     ColorSelector,
-    TimeInput
+    TimeInput,
+    Timer
 }

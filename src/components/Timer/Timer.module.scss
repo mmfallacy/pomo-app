@@ -1,0 +1,41 @@
+@import "../../variables";
+
+
+.Timer{
+    background:red;
+    height:250px;
+    width:250px;
+    position:relative;
+
+    display:flex;
+    align-items:center; 
+    justify-content: center;
+}
+
+.CircularContainer{
+    fill: none;
+    position: absolute;
+    top: 0;
+    left:0;
+
+    .Fill{
+        stroke: blue; // Default
+        stroke-width:2px;
+        stroke-dasharray: 100,100;
+    }
+    .Background{
+        fill: none; // Default
+    }
+}
+
+.Text{
+    position: relative;
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.Timer{
+    // Temporary. Remove after finishing component
+    margin-top: 50px;
+}
+
